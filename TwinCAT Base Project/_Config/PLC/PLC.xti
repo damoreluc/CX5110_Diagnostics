@@ -1,15 +1,79 @@
 <?xml version="1.0"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.54" ClassName="CNestedPlcProjDef">
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.11" ClassName="CNestedPlcProjDef">
 	<Project GUID="{E09543CB-5055-4747-8DFB-7FD68CD09779}" Name="PLC" PrjFilePath="..\..\PLC\PLC.plcproj" TmcFilePath="..\..\PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
 		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2">
 			<Name>PLC Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+			<Vars VarGrpType="1">
+				<Name>PlcTask Inputs</Name>
+				<Var>
+					<Name>GVL_IO.DI</Name>
+					<Comment><![CDATA[ 16 bit inputs]]></Comment>
+					<Type>UINT</Type>
+				</Var>
+			</Vars>
+			<Vars VarGrpType="2" AreaNo="1">
+				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>GVL_IO.DQ</Name>
+					<Comment><![CDATA[ 16 bit outputs]]></Comment>
+					<Type>UINT</Type>
+				</Var>
+			</Vars>
 			<Contexts>
 				<Context>
-					<Id>1</Id>
-					<Name>Default</Name>
+					<Id NeedCalleeCall="true">0</Id>
+					<Name>PlcTask</Name>
+					<ManualConfig>
+						<OTCID>#x02010030</OTCID>
+					</ManualConfig>
+					<Priority>20</Priority>
+					<CycleTime>10000000</CycleTime>
 				</Context>
 			</Contexts>
+			<TaskPouOids>
+				<TaskPouOid Prio="20" OTCID="#x08502001"/>
+			</TaskPouOids>
 		</Instance>
 	</Project>
+	<Mappings>
+		<OwnerA Name="PLC Instance">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 4 (EL1809)">
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 10^Input" Size="1" OffsA="9"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 11^Input" Size="1" OffsA="10"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 12^Input" Size="1" OffsA="11"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 13^Input" Size="1" OffsA="12"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 14^Input" Size="1" OffsA="13"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 15^Input" Size="1" OffsA="14"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 16^Input" Size="1" OffsA="15"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 1^Input" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 2^Input" Size="1" OffsA="1"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 3^Input" Size="1" OffsA="2"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 4^Input" Size="1" OffsA="3"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 5^Input" Size="1" OffsA="4"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 6^Input" Size="1" OffsA="5"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 7^Input" Size="1" OffsA="6"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 8^Input" Size="1" OffsA="7"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.DI" VarB="Channel 9^Input" Size="1" OffsA="8"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL2809)">
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 10^Output" Size="1" OffsA="9"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 11^Output" Size="1" OffsA="10"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 12^Output" Size="1" OffsA="11"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 13^Output" Size="1" OffsA="12"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 14^Output" Size="1" OffsA="13"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 15^Output" Size="1" OffsA="14"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 16^Output" Size="1" OffsA="15"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 1^Output" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 2^Output" Size="1" OffsA="1"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 3^Output" Size="1" OffsA="2"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 4^Output" Size="1" OffsA="3"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 5^Output" Size="1" OffsA="4"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 6^Output" Size="1" OffsA="5"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 7^Output" Size="1" OffsA="6"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 8^Output" Size="1" OffsA="7"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.DQ" VarB="Channel 9^Output" Size="1" OffsA="8"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
 </TcSmItem>

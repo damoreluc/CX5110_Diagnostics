@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="GVL_IO" Id="{74aab578-09a4-00f6-00c8-d2c2ac64737c}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// 16 bit inputs
+	DI	AT %I*	:	UINT;
+	// 16 bit outputs
+	DQ	AT %Q*	:	UINT;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
